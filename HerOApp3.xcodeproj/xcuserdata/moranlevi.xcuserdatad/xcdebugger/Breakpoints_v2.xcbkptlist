@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HerOApp3/ViewController.swift"
+            timestampString = "552144402.812683"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "getImage(url:imageView:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HerOApp3.ViewController.getImage(url: Swift.String, imageView: __ObjC.UIImageView) -&gt; ()"
+                  moduleName = "HerOApp3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/moranlevi/Desktop/HerOApp3/HerOApp3/ViewController.swift"
+                  timestampString = "552059178.9027801"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "33">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in HerOApp3.ViewController.getImage(url: Swift.String, imageView: __ObjC.UIImageView) -&gt; ()"
+                  moduleName = "HerOApp3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/moranlevi/Desktop/HerOApp3/HerOApp3/ViewController.swift"
+                  timestampString = "552059178.9057389"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
