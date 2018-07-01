@@ -16,7 +16,7 @@ struct cellData {
 class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet var tableView: UITableView!
-  
+    
     @IBOutlet var titleActor: UINavigationItem!
     @IBOutlet var imageActor: UIImageView!
     @IBOutlet var nicknameLbl: UILabel!
@@ -38,13 +38,12 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         self.tableView.delegate = self
         let nib = UINib(nibName: "ActorsCell", bundle: nil);   //TODO
         self.tableView.register(nib, forCellReuseIdentifier: "cell")
-       
-       // self.tableView.tableFooterView?.isHidden = true
+        
         imageActor.isUserInteractionEnabled = true
         self.imageActor.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(imageTapped)))
         
     }
-
+    
     func downloadJson(){
         guard let downloadUrl = url else {return} //make sure the url exist}
         URLSession.shared.dataTask(with: downloadUrl) { data, URLResponse,error in
@@ -56,7 +55,6 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
             do{
                 let decoder = JSONDecoder()
                 let DownloadedActors = try decoder.decode(Actor.self, from: data)
-              //  self.actors = DownloadedActors.actors
                 
                 DispatchQueue.main.async {
                     self.actor = DownloadedActors
@@ -66,8 +64,8 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
             }catch{
                 print("somethink worng after downloaded")
             }
-
-        }.resume()
+            
+            }.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,14 +83,14 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         cell?.yearLbl.text = "\(actor?.data.movies[indexPath.row].year ?? -1)"
         
         cell?.movieLbl.text = "\(actor?.data.movies[indexPath.row].name ?? "")"
-
+        
         self.nicknameLbl.text = "Nickname:      " + "\(actor?.data.nickname ?? "")"
         self.originalActorLbl.text = "Original Actor:      " + "\(actor?.data.actorName ?? "")"
         self.YobLbl.text = "Year Born:           " + "           " + "           " + "\(actor?.data.dateOfBirth ?? -1)"
         self.powersLbl.text = "Powers:      " + "             " +   "\((actor?.data.powers) ?? [""])"
-   
         
-      
+        
+        
         getImage(url: (actor?.data.image)!, imageView: self.imageActor)
         self.imageActor.layer.cornerRadius = self.imageActor.frame.width/2
         self.imageActor.clipsToBounds = true
@@ -115,8 +113,8 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return .leastNonzeroMagnitude
     }
-  
-   
+    
+    
     
     func getImage(url: String, imageView: UIImageView){
         DispatchQueue.global(qos: .background).async {
@@ -142,16 +140,13 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     @objc func imageTapped(){
         print("image was tapped")
         
-       let imageVC = self.performSegue(withIdentifier: "push", sender: self)
-//        let cell = self.tableView.cellForRow(at: IndexPath) as? ImageViewController
-//        self.imageActor = ActorsCell.image
+        self.performSegue(withIdentifier: "push", sender: self)
         
-        //imageVC.image 
-        }
-    
-  
- 
     }
+    
+    
+    
+}
     
 
 

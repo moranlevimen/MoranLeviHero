@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HerOApp3/ViewController.swift"
-            timestampString = "552144402.812683"
+            timestampString = "552152520.58754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "getImage(url:imageView:)"
             landmarkType = "7">
             <Locations>
