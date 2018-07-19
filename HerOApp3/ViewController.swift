@@ -15,16 +15,16 @@ struct cellData {
 
 class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     
-    @IBOutlet var titleActor: UINavigationItem!
-    @IBOutlet var imageActor: UIImageView!
-    @IBOutlet var nicknameLbl: UILabel!
-    @IBOutlet var YobLbl: UILabel!
-    @IBOutlet var powersLbl: UILabel!
-    @IBOutlet var originalActorLbl: UILabel!
+    @IBOutlet private var titleActor: UINavigationItem!
+    @IBOutlet private var imageActor: UIImageView!
+    @IBOutlet private var nicknameLbl: UILabel!
+    @IBOutlet private var YobLbl: UILabel!
+    @IBOutlet private var powersLbl: UILabel!
+    @IBOutlet private var originalActorLbl: UILabel!
     
-    var arrayOfCellData = [ActorData]()
+    private var arrayOfCellData = [ActorData]()
     
     
     final let url = URL(string: "http://heroapps.co.il/employee-tests/ios/logan.json")
@@ -44,7 +44,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
     }
     
-    func downloadJson(){
+    private func downloadJson(){
         guard let downloadUrl = url else {return} //make sure the url exist}
         URLSession.shared.dataTask(with: downloadUrl) { data, URLResponse,error in
             guard let data = data, error == nil, URLResponse != nil else{
@@ -68,7 +68,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
             }.resume()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = self.actor?.data.movies.count {
             return count
         }
@@ -77,7 +77,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ActorsCell
         
         cell?.yearLbl.text = "\(actor?.data.movies[indexPath.row].year ?? -1)"
@@ -98,7 +98,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         return (cell)!
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    internal func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerText = UILabel()
         headerText.textColor = UIColor.white
         headerText.backgroundColor = UIColor.darkGray
@@ -110,13 +110,13 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         return headerText
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    internal func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return .leastNonzeroMagnitude
     }
     
     
     
-    func getImage(url: String, imageView: UIImageView){
+    private func getImage(url: String, imageView: UIImageView){
         DispatchQueue.global(qos: .background).async {
             if let imageUrl = URL(string: url){
                 do{
@@ -137,7 +137,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    @objc func imageTapped(){
+     @objc private func imageTapped(){
         print("image was tapped")
         
         self.performSegue(withIdentifier: "push", sender: self)

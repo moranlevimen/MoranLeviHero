@@ -17,9 +17,9 @@ class ImageViewController: UIViewController {
     
 
     
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet private var imageView: UIImageView!
     
-    @IBAction func backBtn(_ sender: UIButton) {
+    @IBAction private func backBtn(_ sender: UIButton) {
         let backVC = self.storyboard?.instantiateViewController(withIdentifier: "VC") as! ViewController
         self.present(backVC, animated: true, completion: nil)
     }
